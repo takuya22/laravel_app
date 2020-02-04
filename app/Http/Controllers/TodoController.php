@@ -23,6 +23,7 @@ class TodoController extends Controller
     public function index()
     {
         $todos = $this->todo->getByUserId(Auth::id());
+        $user = Auth::user();
         //
         // return "Hello World!";
         // return view('layouts.app');
@@ -30,7 +31,7 @@ class TodoController extends Controller
         // dd($todos);
         // dd($this->todo);
         // dd(compact('todos'));
-        return view('todo.index', compact('todos'));
+        return view('todo.index', compact('todos', 'user'));
         // return view('todo.index', $todos);
     }
 
